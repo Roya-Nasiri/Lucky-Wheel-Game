@@ -1,5 +1,5 @@
-# Lucky-Wheel-Game
 # 🎡 Lucky Wheel Game
+Demo : (https://roya-nasiri.github.io/Lucky-Wheel-Game/)
 
 An interactive and fun spinning wheel game built with pure HTML, CSS, and JavaScript.
 
@@ -38,4 +38,5 @@ This project was created to practice:
 
 ## 👩‍💻 Author
 
-Roya Nasiri
+Roya Nasiri 
+
