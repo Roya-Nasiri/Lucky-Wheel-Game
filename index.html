@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lucky Wheel Game</title>
+    <link rel="stylesheet" href="./css/style.css">
+  </head>
+  <body>
+    <div class="alert"></div>
+    <div class="box">
+      <i class="icon"
+        ><svg
+          width="64"
+          height="55"
+          viewBox="0 0 24 24"
+          fill="black"
+            stroke="black" 
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M15 4L15 13L16.7962 13C17.6554 13 18.1146 14.0119 17.5488 14.6585L12.7526 20.1399C12.3542 20.5952 11.6458 20.5952 11.2474 20.1399L6.45119 14.6585C5.88543 14.0119 6.34461 13 7.20377 13L9 13L9 4C9 3.44771 9.44772 3 10 3L14 3C14.5523 3 15 3.44772 15 4Z"
+            fill="gold"
+          />
+        </svg>
+      </i>
+      <img src="./img/87b28695-aa59-48fc-9817-aa54eba3720c.png" alt="" />
+      <button>spin</button>
+    </div>
+      <div class="myName">
+      <img src="./img/2065e7d8-cbf4-4a80-a23b-72bc2c20c9c9.jpg" alt="" />
+      <span>RoyaNasiri</span>
+      <i
+        ><a href="https://www.linkedin.com/in/roya-nasiri-81466123a">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="30"
+            viewBox="0 0 24 24"
+            fill="#0A66C2"
+          >
+            <path
+              d="M20.447 20.452H16.89V14.87c0-1.331-.027-3.045-1.856-3.045-1.857 0-2.142 1.45-2.142 2.948v5.679H9.336V9h3.414v1.561h.049c.476-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.063 2.063 0 1 1 0-4.126 2.063 2.063 0 0 1 0 4.126zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+            />
+          </svg>
+        </a>
+      </i>
+    </div>
+
+    <script>
+
+      const btn = document.querySelector('button');
+      const _img = document.querySelector('img');
+      const _alert = document.querySelector('.alert');
+      
+      /////////////////
+       let flag = 0
+      btn.addEventListener('click', () => {
+            let rand = 0
+        if(!flag){
+             rand = Math.floor(Math.random() * 360);
+            //  rand = 355
+             _img.style.transform = 'rotate(' + (rand + 720 - 22.5) + 'deg)';
+             btn.innerText='reset'
+          
+             flag++
+             /////////////gift///////////
+          console.log("rand =", rand);
+        let txt = ''
+       switch(true){
+        case rand>=0 && rand<=45 : txt = '10%' ; break;
+        case rand>=46 && rand<=90 : txt = 'Null' ; break;
+        case rand>=91 && rand<=135 : txt = '60%' ; break;
+        case rand>=136 && rand<=180 : txt = '40%' ; break;
+        case rand>=181 && rand<=225 : txt = '30%' ; break;
+        case rand>=226 && rand<=270 : txt = '25%' ; break;
+        case rand>=271 && rand<=315 : txt = '20%' ; break;
+        case rand>=316 && rand<360 : txt = '15%' ; break;
+       }
+       setTimeout(() => {
+        _alert.style.display = 'block'
+         if(txt == 'Null'){
+            _alert.innerText = 'Try again...'
+         }else{
+             _alert.innerText = 'You won'+' ' + txt
+         }
+       }, 3040);
+            
+        }else{
+             _img.style.transform= 'rotate(0deg)'
+             btn.innerText='spin'
+             _alert.innerText = ''
+              _alert.style.display = 'none'
+             btn.setAttribute('disabled','disabled')
+             setTimeout(() => {
+                btn.removeAttribute('disabled')
+             }, 2000);
+             
+             flag = 0
+        }
+         
+    });
+       
+    </script>
+  </body>
+</html>
